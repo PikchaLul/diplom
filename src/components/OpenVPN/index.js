@@ -12,7 +12,7 @@ const rowConstructor = {
                                 rowContent: <span className="center">{element.data}</span>
                                     }},
     organizationName:  (element) => {return {rowContainerClassName: "table-cell col-md-2",
-                                             rowContent: <a className="organization-cards-linkName center" herf="#">{element.data}</a>
+                                             rowContent: <a className="organization-cards-linkName center" href="/">{element.data}</a>
                             }},
     status: (element) => {return {rowContainerClassName:"table-cell col-md-1",
                                   rowContent: <span className="center status-on">{element.data}</span>

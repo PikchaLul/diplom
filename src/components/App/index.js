@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react'
 
-import Header from '../Header'
 import PageViewer from '../PageViewer'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -33,12 +32,8 @@ library.add(faUser, faPowerOff,
 
 class App extends PureComponent {
     render() {
-        
         return (
-            <div className="page-content">
-                <Header/>
-                <PageViewer/>
-            </div>
+            <PageViewer/>
         )
     }
 }

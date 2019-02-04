@@ -4,7 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './style.css'
 
 class OrganizationInput extends PureComponent {
+
     render() {
+        const {onButtonCancelClick} = this.props;
+
         return(
             <div className="card at-panel">
                 <div className="at-panel-header">
@@ -104,7 +107,7 @@ class OrganizationInput extends PureComponent {
                                 </div>
                                 <div className="col-sm-12 at-action-group">
                                     <div className="pull-right">
-                                        <button className="btn at-button-hollow-default">Отменить</button>
+                                        <button className="btn at-button-hollow-default" onClick={onButtonCancelClick}>Отменить</button>
                                         <button className="btn at-button-hollow-success">Сохранить</button>
                                     </div>
                                 </div>
@@ -113,8 +116,7 @@ class OrganizationInput extends PureComponent {
                     </div>
                 </div>
             </div>
-        )
-        
+        ) 
     }
 }
 

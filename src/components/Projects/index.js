@@ -6,10 +6,10 @@ import './style.css'
 
 const rowConstructor = {
     projectName: (element) => {return {rowContainerClassName: "table-cell col-md-3",
-                                       rowContent: <a className="organization-cards-linkName" herf="#">{element.data}</a>
+                                       rowContent: <a className="organization-cards-linkName" href="/">{element.data}</a>
                               }},
     organizationName: (element) => {return {rowContainerClassName: "table-cell col-md-3",
-                                            rowContent: <a className="organization-cards-linkName center" herf="#">{element.data}</a>
+                                            rowContent: <a className="organization-cards-linkName center" href="/">{element.data}</a>
                                     }},
     servers:  (element) => {return {rowContainerClassName: "table-cell col-md-3",
                                     rowContent: <div className="center">

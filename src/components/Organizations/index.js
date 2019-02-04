@@ -14,7 +14,7 @@ class Organizations extends PureComponent {
                     {subsectionData.links.map((link, index)=>
                         <div className="organization-cards-link">
                             <span className="badge title-badge organization-cards-linkBadge">{organization[index+1]}</span>
-                            <a className="organization-cards-linkName" href="#">{link}</a>
+                            <a className="organization-cards-linkName" href="/">{link}</a>
                         </div>
                     )}
                 </div>

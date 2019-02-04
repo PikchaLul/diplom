@@ -9,13 +9,13 @@ class Header extends PureComponent {
             <div className="header-content">
                 <div className="right-aligner"></div>
                 <div className="user-menu">
-                    <a>
+                    <a href="/">
                         <FontAwesomeIcon icon="user" className="user-icon"/>
                         <span>Имя пользователя</span>
                     </a>
                 </div>
                 <div className="logout-menu">
-                    <a>
+                    <a href="/">
                         <FontAwesomeIcon icon="power-off" className="logout-icon"/>
                     </a>
                 </div>

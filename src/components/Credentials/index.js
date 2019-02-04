@@ -12,13 +12,13 @@ const rowConstructor = {
                                 rowContent: <span className="center">{element.data}</span>
                                     }},
     organizationName:  (element) => {return {rowContainerClassName: "table-cell col-md-2",
-                                             rowContent: <a className="organization-cards-linkName center" herf="#">{element.data}</a>
+                                             rowContent: <a className="organization-cards-linkName center" href="/">{element.data}</a>
                             }},
     projectList: (element) => {return {rowContainerClassName:"table-cell col-md-2",
-                                       rowContent: <a className="organization-cards-linkName center" herf="#">{element.data}</a>
+                                       rowContent: <a className="organization-cards-linkName center" href="/">{element.data}</a>
                         }},
     serverList: (element) => {return {rowContainerClassName: "table-cell col-md-2",
-                                      rowContent: <a className="organization-cards-linkName center" herf="#">{element.data}</a>
+                                      rowContent: <a className="organization-cards-linkName center" href="/">{element.data}</a>
                              }},
     icons: (element) => {return {rowContainerClassName: "list-action-button-container col-md-2",
                                  rowContent: <div className="table-cell list-action-button-cell">

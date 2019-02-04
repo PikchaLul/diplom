@@ -5,6 +5,11 @@ import OrganizationInput from '../OrganizationInput'
 import './style.css'
 
 class MainContent extends PureComponent {
+
+    state = {
+        isOpenInput: false
+    }
+
     render() {
         const {SubsectionView, subsectionProps} = this.props;
         console.log(subsectionProps)
@@ -13,7 +18,7 @@ class MainContent extends PureComponent {
             <div className="main-content-layout">
                 <div className="content-layout">
                     <div className="container-fluid">
-                        <OrganizationInput/>
+                        {this.state.isOpenInput ? <OrganizationInput onButtonCancelClick = {this.onButtonCancelRecordClick}/> : null}
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="tab-pane">
@@ -40,7 +45,7 @@ class MainContent extends PureComponent {
                                                     </div>
                                                 </div>
                                                 <div className="action-list">
-                                                    <button className="action-button-add">
+                                                    <button className="action-button-add"  onClick = {this.onButtonAddRecordClick}>
                                                             <FontAwesomeIcon icon="plus" className="button-icon lg" />
                                                     </button>
                                                 </div>
@@ -56,6 +61,19 @@ class MainContent extends PureComponent {
             </div>
         )
     }
+
+    onButtonAddRecordClick = () => {
+        this.setState({
+            isOpenInput: true
+        })
+    }
+
+    onButtonCancelRecordClick = () => {
+        this.setState({
+            isOpenInput: false
+        })
+    }
+
 }
 
 export default MainContent
