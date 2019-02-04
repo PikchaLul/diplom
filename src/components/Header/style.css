@@ -1,0 +1,59 @@
+.header-content{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1040;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+.header-content .user-menu{
+    flex: right;
+    display: block;
+    padding: 0 20px;
+}
+
+.header-content .user-menu a{
+    color: #707070;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.header-content .right-aligner{
+    margin-left: auto;
+}
+
+.header-content .logout-menu{
+    flex: right;
+    display: block;
+    padding: 0 20px;
+}
+
+.header-content .logout-menu a{
+    color: #707070;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.user-icon, .logout-icon{
+    margin-right: 10px;
+    font-size: 21px;
+}
+
+.user-menu:hover{
+    background-color: #f8f9fa;
+}
+
+.logout-menu:hover{
+    background-color: #f8f9fa;
+}

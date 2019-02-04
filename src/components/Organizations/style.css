@@ -1,0 +1,67 @@
+.organization-cards{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    width: calc(100% + 20px);
+    margin: 0px -10px;
+}
+
+.organization-cards-card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    padding-bottom: 0px;
+    border-radius: 5px;
+    border: 1px solid #B7B7B7;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: calc(33.333% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.organization-cards-header{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.organization-cards-label{
+    cursor: pointer;
+    margin-top: 0px;
+    font-size: 14px;
+    height: 17px;
+    font-weight: bold;
+    color: #337AB7;
+    margin-bottom: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: baseline;
+}
+
+.organization-cards-links{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.organization-cards-linkBadge{
+    margin-right: 10px;
+}
+
+.organization-cards-link{
+    flex: initial;
+    width: calc(50% - 20px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 20px;
+}
+
+.organization-cards-linkName{
+    color: #337AB7 !important;
+    cursor: pointer;
+    background-color: transparent;
+}
