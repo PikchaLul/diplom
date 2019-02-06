@@ -1,3 +1,5 @@
+import { Modal } from "react-bootstrap";
+
 export default {
     "Организации": {
         inputTitle: "Новая организация",
@@ -20,7 +22,7 @@ export default {
             {
                 fieldType: "lookUp",
                 fieldName: "Пользователь",
-                fieldPlaceholder: "Выберите пользователя" 
+                fieldPlaceholder: "Выберите пользователя"
             }
         ]
     },
@@ -40,7 +42,7 @@ export default {
             {
                 fieldType: "lookUp",
                 fieldName: "Организация",
-                fieldPlaceholder: "Выберите организацию" 
+                fieldPlaceholder: "Выберите организацию"
             },
             {
                 fieldType: "lookUp",
@@ -50,7 +52,7 @@ export default {
             {
                 fieldType: "lookUp",
                 fieldName: "Пользователь",
-                fieldPlaceholder: "Выберите пользователя" 
+                fieldPlaceholder: "Выберите пользователя"   
             }
         ]
     },
@@ -70,17 +72,17 @@ export default {
             {
                 fieldType: "lookUp",
                 fieldName: "Проект",
-                fieldPlaceholder: "Выберите проект" 
+                fieldPlaceholder: "Выберите проект"
             },
             {
                 fieldType: "lookUp",
                 fieldName: "Организация",
-                fieldPlaceholder: "Выберите организацию" 
+                fieldPlaceholder: "Выберите организацию"
             },
             {
                 fieldType: "lookUp",
                 fieldName: "Привилегии",
-                fieldPlaceholder: "Выберите тип привилегии" 
+                fieldPlaceholder: "Выберите тип привилегии"
             }
         ]
     },
@@ -140,7 +142,7 @@ export default {
             {
                 fieldType: "lookUp",
                 fieldName: "Права доступа",
-                fieldPlaceholder: "Выберите тип доступа" 
+                fieldPlaceholder: "Выберите тип доступа"
             }
         ]
     }

@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import InputPrivilege from '../InputPrivilege'
 import SelectModal from '../SelectModal'
 
+import SelectModalsData from '../SelectModalsData'
+
 import './style.css'
 
 class InputViewer extends PureComponent {
@@ -12,14 +14,16 @@ class InputViewer extends PureComponent {
 
         const inputConstructor = {
             "common": (placeholder)=>{return(<input className="at-input form-control at-input-rejected" placeholder={placeholder}/>)},
-            "lookUp": (placeholder)=>{return(<div className="at-input-lookup">
-                                                 <button type="button" className="at-input-lookup-button" onClick={this.props.modalShow}>
+            "lookUp": (placeholder, fieldName)=>{return(<div className="at-input-lookup">
+                                                 <button type="button" className="at-input-lookup-button" onClick={this.props.modalShow.bind(this, fieldName)}>
                                                      <FontAwesomeIcon icon="search" className="search-icon"/>
                                                  </button>
                                                  <input className="at-input form-control at-input-rejected" placeholder={placeholder}/>
                                              </div> )}
             
         }
+
+        console.log(SelectModalsData[this.props.currentModalPage]);
 
         return(
             <div className="card at-panel">
@@ -43,12 +47,15 @@ class InputViewer extends PureComponent {
                                                 <span className="at-input-label-required">*</span>
                                                 <span className="at-input-label-name">{field.fieldName}</span>
                                             </label>
-                                            {inputConstructor[field.fieldType](field.fieldPlaceholder)}
+                                            {inputConstructor[field.fieldType](field.fieldPlaceholder, field.fieldName)}
                                             <p className="at-input-message-rejected">fdgdfgdf</p> 
                                         </div>
                                     </div>
                                 )}
-                                <SelectModal show={this.props.isModalShow} onHide={this.props.modalClose}/>
+                                {this.props.currentModalPage ? <SelectModal show={this.props.isModalShow} 
+                                                                            onHide={this.props.modalClose} 
+                                                                            data={SelectModalsData[this.props.currentModalPage]}/> 
+                                                            : null}
                                 {/* <InputPrivilege/> */}
                                 <div className="col-sm-12 at-action-group">
                                     <div className="pull-right">

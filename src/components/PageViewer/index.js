@@ -13,6 +13,7 @@ class PageViewer extends PureComponent {
     
     state = {
         currentComponent: SideMenuSubsection["Организации"],
+        currentModalPage: null,
         isOpenInput: false,
         isModalShow: false
     }
@@ -30,6 +31,7 @@ class PageViewer extends PureComponent {
                              onButtonCancelRecordClick = {this.onButtonCancelRecordClick}
                              isOpenInput = {this.state.isOpenInput}
                              isModalShow = {this.state.isModalShow}
+                             currentModalPage  = {this.state.currentModalPage}
                              modalShow = {this.modalShow}
                              modalClose = {this.modalClose}
                 />
@@ -52,12 +54,12 @@ class PageViewer extends PureComponent {
         this.setState({isOpenInput: false})
     }
 
-    modalShow = () => {
-        this.setState({ isModalShow: true })
+    modalShow = (fieldName) => {
+        this.setState({ isModalShow: true, currentModalPage: fieldName })
     }
 
     modalClose = () => {
-        this.setState({ isModalShow: false })
+        this.setState({ isModalShow: false, currentModalPage: null })
     }
 }
 
