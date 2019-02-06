@@ -13,7 +13,7 @@ class SelectModal extends PureComponent {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Выберите организацию
+                        {this.props.data.modalTitle}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -35,19 +35,21 @@ class SelectModal extends PureComponent {
                                     <div></div>
                                     <div className="d-flex h-100">
                                         <div className="list-table-header list-table-cell">
-                                            Имя организации
+                                            {this.props.data.modalFieldName}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="selector-list-body">
-                                    <div className="list-lookup-layout list-table-row">
-                                        <div className="list-center-end">
-                                            <input type="radio"></input>
+                                    {this.props.data.modalBody.map((record) => 
+                                        <div className="list-lookup-layout list-table-row">
+                                            <div className="list-center-end">
+                                                <input type="radio"></input>
+                                            </div>
+                                            <div className="d-flex h-100">
+                                                <div className="list-table-cell col-sm-12">{record.recordName}</div>
+                                            </div>
                                         </div>
-                                        <div className="d-flex h-100">
-                                            <div className="list-table-cell col-sm-12">ФИТ</div>
-                                        </div>
-                                    </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

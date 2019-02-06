@@ -17,6 +17,7 @@ class MainContent extends PureComponent {
                         {isOpenInput ? <InputViewer onButtonCancelClick = {onButtonCancelRecordClick}
                                                     fieldsPropeties = {InputFields[subsectionProps.sectionName]}
                                                     isModalShow = {this.props.isModalShow}
+                                                    currentModalPage = {this.props.currentModalPage}
                                                     modalShow = {this.props.modalShow}
                                                     modalClose = {this.props.modalClose}
                         /> : null}
