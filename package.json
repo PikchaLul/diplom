@@ -10,6 +10,7 @@
     "i": "^0.3.6",
     "npm": "^6.7.0",
     "react": "^16.7.0",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
   },

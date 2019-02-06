@@ -54,8 +54,7 @@ button{
 
 .table-header{
     font-size: 14px;
-    font-weight: normal;
-    text-transform: uppercase;
+    font-weight: bold;
     color: #606060;
     border-bottom-width: 0px!important;
 }

@@ -1,0 +1,63 @@
+.at-input-group{
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.at-input-group-container{
+    margin-top: 25px;
+}
+
+.at-input-group-border{
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background: #b7b7b7;
+    left: -5px;
+}
+
+.at-input-file-hidden {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: -2;
+    opacity: 0;
+}
+
+.textarea.form-control {
+    height: auto;
+}
+
+.at-input-textarea {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    min-height: 144px;
+    padding: 6px 10px 0 10px;
+}
+
+.at-input, .at-input:active {
+    border-color: #b7b7b7;
+}
+
+.at-input {
+    height: 30px;
+    background: #fcfcfc;
+    border-radius: 5px;
+    color: #161b1f;
+    padding: 0 10px;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+@media (min-width: 576px){
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

@@ -1,24 +1,25 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import OrganizationInput from '../OrganizationInput'
+import InputViewer from '../InputViewer'
+import InputFields from '../InputFields'
 
 import './style.css'
 
 class MainContent extends PureComponent {
-
-    state = {
-        isOpenInput: false
-    }
-
     render() {
-        const {SubsectionView, subsectionProps} = this.props;
-        console.log(subsectionProps)
+        const {SubsectionView, subsectionProps, isOpenInput, 
+               onButtonAddRecordClick, onButtonCancelRecordClick} = this.props;
 
         return (
             <div className="main-content-layout">
                 <div className="content-layout">
                     <div className="container-fluid">
-                        {this.state.isOpenInput ? <OrganizationInput onButtonCancelClick = {this.onButtonCancelRecordClick}/> : null}
+                        {isOpenInput ? <InputViewer onButtonCancelClick = {onButtonCancelRecordClick}
+                                                    fieldsPropeties = {InputFields[subsectionProps.sectionName]}
+                                                    isModalShow = {this.props.isModalShow}
+                                                    modalShow = {this.props.modalShow}
+                                                    modalClose = {this.props.modalClose}
+                        /> : null}
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="tab-pane">
@@ -45,7 +46,7 @@ class MainContent extends PureComponent {
                                                     </div>
                                                 </div>
                                                 <div className="action-list">
-                                                    <button className="action-button-add"  onClick = {this.onButtonAddRecordClick}>
+                                                    <button className="action-button-add"  onClick = {onButtonAddRecordClick}>
                                                             <FontAwesomeIcon icon="plus" className="button-icon lg" />
                                                     </button>
                                                 </div>
@@ -61,19 +62,6 @@ class MainContent extends PureComponent {
             </div>
         )
     }
-
-    onButtonAddRecordClick = () => {
-        this.setState({
-            isOpenInput: true
-        })
-    }
-
-    onButtonCancelRecordClick = () => {
-        this.setState({
-            isOpenInput: false
-        })
-    }
-
 }
 
 export default MainContent
