@@ -13,17 +13,36 @@ class InputViewer extends PureComponent {
         const {onButtonCancelClick, fieldsPropeties} = this.props;
 
         const inputConstructor = {
-            "common": (placeholder)=>{return(<input className="at-input form-control at-input-rejected" placeholder={placeholder}/>)},
-            "lookUp": (placeholder, fieldName)=>{return(<div className="at-input-lookup">
-                                                 <button type="button" className="at-input-lookup-button" onClick={this.props.modalShow.bind(this, fieldName)}>
-                                                     <FontAwesomeIcon icon="search" className="search-icon"/>
-                                                 </button>
-                                                 <input className="at-input form-control at-input-rejected" placeholder={placeholder}/>
-                                             </div> )}
-            
+            "common": (placeholder, fieldName)=>{return(<div className="form-group at-u-flat">
+                                                <label className="at-input-label">
+                                                    <span className="at-input-label-required">*</span>
+                                                    <span className="at-input-label-name">{fieldName}</span>
+                                                </label>
+                                                <input className="at-input form-control at-input-rejected" placeholder={placeholder}/>
+                                                <p className="at-input-message-rejected">fdgdfgdf</p> 
+                                             </div>)},
+            "lookUp": (placeholder, fieldName)=>{return(<div className="form-group at-u-flat">
+                                                            <label className="at-input-label">
+                                                                <span className="at-input-label-required">*</span>
+                                                                <span className="at-input-label-name">{fieldName}</span>
+                                                            </label>
+                                                            <div className="at-input-lookup">
+                                                                    <button type="button" className="at-input-lookup-button" onClick={this.props.modalShow.bind(this, fieldName)}>
+                                                                        <FontAwesomeIcon icon="search" className="search-icon"/>
+                                                                    </button>
+                                                                    <input className="at-input form-control at-input-rejected" placeholder={placeholder}/>
+                                                            </div> 
+                                                            <p className="at-input-message-rejected">fdgdfgdf</p> 
+                                                        </div>)},
+            "checkbox": (_, fieldName) => {return(<div className="form-group at-u-flat radio-field">
+                                                    <label className="at-input-radio-label">
+                                                        <span className="at-input-label-name">{fieldName}</span>
+                                                    </label>
+                                                    <input type="radio" className="verbose-button"></input>
+                                                  </div>)}       
         }
 
-        console.log(SelectModalsData[this.props.currentModalPage]);
+        console.log(fieldsPropeties.inputBody);
 
         return(
             <div className="card at-panel">
@@ -42,14 +61,7 @@ class InputViewer extends PureComponent {
                             <div className="row">
                                 {fieldsPropeties.inputBody.map((field)=>
                                     <div className="col-sm-4 at-input-container">
-                                        <div className="form-group at-u-flat">
-                                            <label className="at-input-label">
-                                                <span className="at-input-label-required">*</span>
-                                                <span className="at-input-label-name">{field.fieldName}</span>
-                                            </label>
-                                            {inputConstructor[field.fieldType](field.fieldPlaceholder, field.fieldName)}
-                                            <p className="at-input-message-rejected">fdgdfgdf</p> 
-                                        </div>
+                                        {inputConstructor[field.fieldType](field.fieldPlaceholder, field.fieldName)}
                                     </div>
                                 )}
                                 {this.props.currentModalPage ? <SelectModal show={this.props.isModalShow} 

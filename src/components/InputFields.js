@@ -26,6 +26,50 @@ export default {
             }
         ]
     },
+    "OpenVPN": {
+        inputTitle: "Новый OpenVPN сервер",
+        inputBody:[
+            {
+                fieldType: "common",
+                fieldName: "Имя OpenVPN",
+                fieldPlaceholder: "Название OpenVPN сервера" 
+            },
+            {
+                fieldType: "lookUp",
+                fieldName: "Тип",
+                fieldPlaceholder: "Выберите тип сервера" 
+            },
+            {
+                fieldType: "common",
+                fieldName: "HOST/IP",
+                fieldPlaceholder: "Введите FQDN или IP сервера" 
+            },
+            {
+                fieldType: "common",
+                fieldName: "Порт SSH",
+                fieldPlaceholder: "Введите номер SSH порта" 
+            },
+            {
+                fieldType: "lookUp",
+                fieldName: "Аккаунт",
+                fieldPlaceholder: "Выберите аккаунт" 
+            },
+            {
+                fieldType: "common",
+                fieldName: "Дирректория скрипта для добавления пользователей",
+                fieldPlaceholder: "Введите дирректорию скрипта" 
+            },
+            {
+                fieldType: "common",
+                fieldName: "Дирректория скрипта мониторинга клиентов",
+                fieldPlaceholder: "Введите номер SSH порта" 
+            },
+            {
+                fieldType: "checkbox",
+                fieldName: "Verbose"
+            }
+        ]
+    },
     "Проекты":{
         inputTitle: "Новый проект",
         inputBody:[
