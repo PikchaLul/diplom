@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ContentTable from '../ContentTable'
+import TableContainer from '../TableContainer'
 
 import './style.css'
 
@@ -51,7 +51,7 @@ class Projects extends PureComponent {
         })
 
         return (
-            <ContentTable header = {tableHeader}
+            <TableContainer header = {tableHeader}
                           rows = {rows}
             />
         )

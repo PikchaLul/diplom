@@ -88,9 +88,9 @@ const accountSchema = new Schema({
         type: String, 
         required: false
     },
-    role: {
+    accessRights: {
         type: String,
-        enum: ['superuser', 'full', 'read-write', 'view'],
+        enum: ['machine', 'docker', 'microtic'],
         required: true
     }
 },

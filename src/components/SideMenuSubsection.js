@@ -205,35 +205,6 @@ export default {
         subsectionComponent: Groups,
         subsectionProps: {          
             sectionName: "Группы",
-            sectionNameCount: "7",
-            subsectionData:{
-                header:[ 
-                    {
-                        columnName:"Имя группы",
-                        position: ""
-                    },
-                    {
-                        columnName:"Кол-во пользователей",
-                        position: "center"
-                    },
-                    {
-                        columnName:"Статус",
-                        position: "center"
-                    },
-                    {
-                        columnName:"Действия",
-                        position: "center"
-                    }
-                ],
-                body:[
-                    [
-                        {type:"groupName", data: "admins"},
-                        {type:"userCount", data: "10"},
-                        {type:"status", data: {online: 7, offline: 3}},
-                        {type:"icons", data: ["plus", "minus", "pencil-alt", "trash", ]} 
-                    ]
-                ]
-            }
         } 
     }
 }

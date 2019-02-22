@@ -1,31 +1,32 @@
 import express from 'express';
+import cors from 'cors';
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose'
 
-import {serverPort} from './etc/config.json';
-
-import * as db from './utils/DataBaseUtils.js';
-
-db.setUpConnection();
+import config from './config/config.json';
+import routes from './routes'
 
 const app = express();
 
+mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, 
+                { useNewUrlParser: true , reconnectTries: 10,
+                reconnectInterval: 3000 
+                });
+
+let dbConnection = mongoose.connection;
+
+dbConnection.on('error', err => console.log(err));
+
+dbConnection.once('open', () => {
+    console.log('Connected to MongoDB');
+});
+
 app.use(bodyParser.json());
 
-app.get('/', async (req, res) => {
-    // const data = await db.listNotes();
-    // res.send(data);
-})
+app.use(cors({ origin: '*' }));
 
-// app.post('/notes', async (req, res) => {
-//     const data = await db.createNote(req.body);
-//     res.send(data);
-// })
+app.use('/groups', routes.api.groups)
 
-// app.delete('/notes/:id', async (req, res) => {
-//     const data = await db.deleteNote(req.params.id);
-//     res.send(data);
-// })
-
-const server = app.listen(serverPort, () => {
-    console.log(`server is up running on port ${serverPort}`)
+const server = app.listen(config.serverPort, () => {
+    console.log(`server is up running on port ${config.serverPort}`)
 });

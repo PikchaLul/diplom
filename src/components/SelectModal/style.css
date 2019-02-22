@@ -120,7 +120,7 @@
     flex: 1 1 auto;
 }
 
-.Lookup .modal-body {
+.lookup .modal-body {
     padding-top: 0px;
 }
 
@@ -136,28 +136,28 @@
     padding: 1rem;
 }
 
-.list-table {
+.modal-list-table {
     margin-top: 20px;
 }
 
-.list-table {
+.modal-list-table {
     width: 100%;
     margin-top: 20px;
     table-layout: fixed;
 }
 
-.list-table-header-row {
+.modal-list-table-header-row {
     background-color: #EBEBEB;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
-.list-lookup-layout {
+.modal-list-lookup-layout {
     display: grid;
     grid-template-columns: 26px auto;
 }
 
-.list-table-cell {
+.modal-list-table-cell {
     padding: 7px 15px;
     border-top: 0px!important;
     word-wrap: break-word;
@@ -166,7 +166,7 @@
     height: 100%;
 }
 
-.list-table-header {
+.modal-list-table-header {
     height: 34px;
     font-size: 14px;
     font-weight: normal;
@@ -179,19 +179,19 @@
     display: flex;
 }
 
-.list-lookup-layout {
+.modal-list-lookup-layout {
     display: grid;
     grid-template-columns: 26px auto;
 }
 
-.list-table-row {
+.modal-list-table-row {
     min-height: 44px;
     font-size: 14px;
     color: #161B1F;
     border-bottom: 1px solid #D7D7D7;
 }
 
-.list-center-end {
+.modal-list-center-end {
     display: flex;
     align-items: center;
     justify-content: flex-end;

@@ -1,57 +1,84 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ContentTable from '../ContentTable'
+
+import TableContainer from '../TableContainer'
 
 import './style.css'
 
-const rowConstructor = {
-    groupName: (element) => {return {rowContainerClassName: "table-cell col-md-3",
-                                    rowContent: <span className="">{element.data}</span>
-                              }},
-    userCount: (element) => {return {rowContainerClassName: "table-cell col-md-3",
-                                    rowContent: <span className="badge title-badge total center">{element.data}</span>
-    }},
-    status: (element) => {return {rowContainerClassName: "table-cell col-md-3",
-                                  rowContent: <div className="center">
-                                                    <span className="badge title-badge online">{element.data.online}</span>
-                                                    <span>/</span>
-                                                    <span className="badge title-badge offline">{element.data.offline}</span>
-                                                </div>
-                                    }},
-    icons: (element) => {return {rowContainerClassName:"list-action-button-container col-md-3",
-                                 rowContent: <div className="table-cell list-action-button-cell">
-                                                 <div className="center">
-                                                    {element.data.map((iconName) =>
-                                                        <button className="action-button">
-                                                            <FontAwesomeIcon icon={iconName} className="button-icon" />
-                                                        </button>
-                                                    )}
-                                                 </div>
-                                             </div>
-                        }}
-}
+const header = [ 
+    {
+        id: "1",
+        columnName:"Имя группы",
+        position: ""
+    },
+    {
+        id: "2",
+        columnName:"Кол-во пользователей",
+        position: "center"
+    },
+    {
+        id: "3",
+        columnName:"Статус",
+        position: "center"
+    },
+    {
+        id: "4",
+        columnName:"Действия",
+        position: "center"
+    }
+];
 
 class Groups extends PureComponent {
     render() {
-        const {subsectionData} = this.props; 
+        const {Data} = this.props; 
 
-        const tableHeader = subsectionData.header.map((element) =>
-        {
-            return {
-                columnName: element.columnName,
-                columnContainerClassName: "table-header table-cell col-md-3",
-                position: element.position
-            }
-        })
-
-        const rows = subsectionData.body.map((row) => {
-            return row.map((element)=>rowConstructor[element.type](element))
-        })
-
+        const headerRow = header.map((element)=>
+                            <div key={element.id}className="table-header table-cell col-md-3">
+                                <span className={element.position}>{element.columnName}</span>
+                            </div>
+                          )
+        
+        const bodyRow = Data.map((record)=>
+                            <div key={record.id} className="list-default-table-row list-table-row">
+                                <div></div>
+                                <div className="d-flex h-100">
+                                    <div className="table-cell col-md-3">
+                                        <span className="">{record.name}</span>
+                                    </div>
+                                    <div className="table-cell col-md-3">
+                                        <span className="badge title-badge total center">{record.userCount}</span>
+                                    </div>
+                                    <div className="table-cell col-md-3">
+                                        <div className="center">
+                                            <span className="badge title-badge online">{record.userCount}</span>
+                                            <span>/</span>
+                                            <span className="badge title-badge offline">{record.userCount}</span>
+                                        </div>
+                                    </div>
+                                    <div className="list-action-button-container col-md-3">
+                                        <div className="table-cell list-action-button-cell">
+                                            <div className="center">
+                                                <button className="action-button">
+                                                    <FontAwesomeIcon icon="plus" className="button-icon" />
+                                                </button>
+                                                <button className="action-button">
+                                                    <FontAwesomeIcon icon="minus" className="button-icon" />
+                                                </button>
+                                                <button className="action-button">
+                                                    <FontAwesomeIcon icon="pencil-alt" className="button-icon" />
+                                                </button>
+                                                <button className="action-button">
+                                                    <FontAwesomeIcon icon="trash" className="button-icon" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>     
+                        )
         return (
-            <ContentTable header = {tableHeader}
-                          rows = {rows}
-            />
+            <TableContainer header={headerRow}
+                            body={bodyRow}/>
         )
     }
 }

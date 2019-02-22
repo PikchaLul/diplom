@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ContentTable from '../ContentTable'
+import TableContainer from '../TableContainer';
 
 import './style.css'
+import { Table } from 'react-bootstrap';
+
 
 const rowConstructor = {
     userName: (element) => {return {rowContainerClassName: "table-cell col-md-2",
@@ -51,7 +53,7 @@ class Credentials extends PureComponent {
         })
 
         return (
-            <ContentTable header = {tableHeader}
+            <TableContainer header = {tableHeader}
                           rows = {rows}
             />
         )

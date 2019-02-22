@@ -20,6 +20,11 @@ const groupSchema = new Schema({
         maxlength: [100, 'Максимальная длинна имени 100 символов'],
         required: false
     },
+    accessRights:{
+        type: String,
+        enum: ['full', 'read-write', 'view'],
+        required: true
+    },
     accounts: [
         {
           type: Schema.Types.ObjectId,
@@ -34,6 +39,10 @@ const groupSchema = new Schema({
             autopopulate: true
         }
     ]
-})
+},
+{
+    timestamps: true
+}
+)
 
 module.exports = mongoose.model('Group', groupSchema);

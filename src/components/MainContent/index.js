@@ -1,25 +1,22 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import InputViewer from '../InputViewer'
-import InputFields from '../InputFields'
+import EditorContainer from '../EditorContainer'
 
 import './style.css'
 
 class MainContent extends PureComponent {
     render() {
-        const {SubsectionView, subsectionProps, isOpenInput, 
-               onButtonAddRecordClick, onButtonCancelRecordClick} = this.props;
+        const {ComponentName} = this.props;
+        console.log('sdfsdfdfsdfsd');
 
         return (
             <div className="main-content-layout">
                 <div className="content-layout">
                     <div className="container-fluid">
-                        {isOpenInput ? <InputViewer onButtonCancelClick = {onButtonCancelRecordClick}
-                                                    fieldsPropeties = {InputFields[subsectionProps.sectionName]}
-                                                    isModalShow = {this.props.isModalShow}
-                                                    currentModalPage = {this.props.currentModalPage}
-                                                    modalShow = {this.props.modalShow}
-                                                    modalClose = {this.props.modalClose}
+                        {this.props.isOpenEditor ? <EditorContainer onButtonCancelClick = {this.props.onButtonCancelRecordClick}
+                                                                    currentModalPage = {this.props.currentModalPage}
+                                                                    onGroupAdd = {this.props.onGroupAdd}
+
                         /> : null}
                         <div className="row">
                             <div className="col-lg-12">
@@ -27,10 +24,10 @@ class MainContent extends PureComponent {
                                     <div className="card at-panel">
                                         <div className="content-header">
                                             <div className="content-header-text">
-                                                {subsectionProps.sectionName}
+                                                {this.props.title}
                                             </div>
                                             <span className="badge title-badge">
-                                                {subsectionProps.sectionNameCount}
+                                                {this.props.groups.length}
                                             </span>
                                         </div>
                                         <div className="content-view">
@@ -47,12 +44,12 @@ class MainContent extends PureComponent {
                                                     </div>
                                                 </div>
                                                 <div className="action-list">
-                                                    <button className="action-button-add"  onClick = {onButtonAddRecordClick}>
+                                                    <button className="action-button-add"  onClick = {this.props.onButtonAddRecordClick}>
                                                             <FontAwesomeIcon icon="plus" className="button-icon lg" />
                                                     </button>
                                                 </div>
                                             </div>
-                                            <SubsectionView subsectionData = {subsectionProps.subsectionData}/>
+                                            <ComponentName Data = {this.props.groups}/>
                                         </div>
                                     </div>
                                 </div>

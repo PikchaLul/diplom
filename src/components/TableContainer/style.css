@@ -2,21 +2,21 @@
     display: flex!important;
 }
 
-.projects-table{
+.list-table{
     margin-top: 20px;
     width: 100%;
     table-layout: fixed;
 }
 
-.projects-table-row{
+.list-default-table-row{
     display: grid;
     grid-template-columns: 5px auto;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
 }
 
-.projects-table-header-row{
+.list-table-header-row{
     background-color: #EBEBEB;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 button{
@@ -68,7 +68,7 @@ button{
     height: 100%;
 }
 
-.projects-table-row{
+.list-table-row{
     display: grid;
     grid-template-columns: 5px auto;
     min-height: 44px;
@@ -101,6 +101,13 @@ button{
 
 .actions{
     justify-content: flex-end;
+}
+
+.list-table-row {
+    min-height: 44px;
+    font-size: 14px;
+    color: #161B1F;
+    border-bottom: 1px solid #D7D7D7;
 }
 
 @media (min-width: 768px){

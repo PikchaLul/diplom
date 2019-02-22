@@ -5,6 +5,16 @@ import {Modal, Button} from 'react-bootstrap'
 import './style.css'
 
 class SelectModal extends PureComponent {
+
+    state = {
+        selectedItem: ''
+    }
+
+    handleSelectedItemChange = (event) => {
+        console.log(event.target.value);
+        this.setState({ selectedItem: event.target.value });
+    }
+
     render() {
         return(
             <Modal
@@ -29,24 +39,24 @@ class SelectModal extends PureComponent {
                                 </div>
                             </div>
                         </div>
-                        <div className="list-table-container">
-                            <div className="list-table">
-                                <div className="list-lookup-layout list-table-header-row">
+                        <div className="modal-list-table-container">
+                            <div className="modal-list-table">
+                                <div className="modal-list-lookup-layout modal-list-table-header-row">
                                     <div></div>
                                     <div className="d-flex h-100">
-                                        <div className="list-table-header list-table-cell">
+                                        <div className="modal-list-table-header modal-list-table-cell">
                                             {this.props.data.modalFieldName}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="selector-list-body">
                                     {this.props.data.modalBody.map((record) => 
-                                        <div className="list-lookup-layout list-table-row">
-                                            <div className="list-center-end">
-                                                <input type="radio"></input>
+                                        <div className="modal-list-lookup-layout modal-list-table-row">
+                                            <div className="modal-list-center-end">
+                                                <input type="radio" value={record.recordName} onChange={this.handleSelectedItemChange}></input>
                                             </div>
                                             <div className="d-flex h-100">
-                                                <div className="list-table-cell col-sm-12">{record.recordName}</div>
+                                                <div className="modal-list-table-cell col-sm-12">{record.recordName}</div>
                                             </div>
                                         </div>
                                     )}
@@ -57,7 +67,7 @@ class SelectModal extends PureComponent {
                 </Modal.Body>
                 <Modal.Footer>
                   <Button onClick={this.props.onHide}>Закрыть</Button>
-                  <Button>Выбрать</Button>
+                  <Button onClick={this.props.onSelect.bind(this, this.state.selectedItem)}>Выбрать</Button>
                 </Modal.Footer>
             </Modal>
             // <div className="selector-veiw">

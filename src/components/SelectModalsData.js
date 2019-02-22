@@ -1,4 +1,13 @@
 export default {
+    "Привилегии":{
+        modalTitle: "Выберите тип привилегии",
+        modalFieldName: "Тип привилегии",
+        modalBody:[
+            {recordName: "machine"},
+            {recordName: "docker"},
+            {recordName: "microtic"}    
+        ]
+    },
     "Права доступа":{
         modalTitle: "Выберите тип доступа",
         modalFieldName: "Тип доступа",
@@ -6,15 +15,6 @@ export default {
             {recordName: "full"},
             {recordName: "read-write"},
             {recordName: "view"}
-        ]
-    },
-    "Привилегии":{
-        modalTitle: "Выберите тип привилегии",
-        modalFieldName: "Тип привелегии",
-        modalBody:[
-            {recordName: "machine"},
-            {recordName: "docker"},
-            {recordName: "microtic"}
         ]
     },
     "Организация":{
