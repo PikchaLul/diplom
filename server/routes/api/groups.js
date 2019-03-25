@@ -1,16 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-import {Group} from '../../models';
+const Group = require('../../models/Group');
 
 router.get('/', async (req, res) => {
-    const data = await Group.find();
-    console.log(data)
-    res.send(data);
+    const groups = await Group.find();
+    res.send(groups);
 })
 
 router.post('/', async (req, res) => {
-    const group = new Group ({
+    const group = new Group({
         name: req.body.name,
         description: req.body.description,
         accessRights: req.body.accessRights

@@ -5,60 +5,51 @@ import Constants from '../constants';
 
 const CHANGE_EVENT = 'change';
 
-var _groups = [];
+var _isAuthorization = false;
 
 let _loadingError = null;
 let _isLoading = true;
 
-function formatGroup(group) {
-    return {
-        id: group._id,
-        name: group.name,
-        description: group.description,
-        accessRights: group.accessRights,
-        userCount: group.accounts.length
-    };
-}
 
 const TasksStore = Object.assign({}, EventEmitter.prototype, {
     isLoading() {
         return _isLoading;
     },
 
-    getGroups() {
-        return _groups;
+    isAuthorization() {
+        return _isAuthorization;
     },
 
-    emitChange: function() {
+    emitChange: function () {
         this.emit(CHANGE_EVENT);
     },
 
-    addChangeListener: function(callback) {
+    addChangeListener: function (callback) {
         this.on(CHANGE_EVENT, callback);
     },
 
-    removeChangeListener: function(callback) {
+    removeChangeListener: function (callback) {
         this.removeListener(CHANGE_EVENT, callback);
     }
 });
 
-AppDispatcher.register(function(action) {
-    switch(action.type) {
-        case Constants.LOAD_GROUPS_REQUEST: {
+AppDispatcher.register(function (action) {
+    switch (action.type) {
+        case Constants.AUTHENTICATION_AUTHORIZATION_REQUEST: {
             _isLoading = true;
             TasksStore.emitChange();
             break;
         }
 
-        case Constants.LOAD_GROUPS_SUCCESS: {
+        case Constants.AUTHENTICATION_AUTHORIZATION_SUCCESS: {
             _isLoading = false;
-            _groups = action.groups.map( formatGroup );
+            _isAuthorization = action.isAuthorization;
             _loadingError = null;
             TasksStore.emitChange();
             break;
         }
 
-        case Constants.LOAD_GROUPS_FAIL: {
+        case Constants.AUTHENTICATION_AUTHORIZATION_FAIL: {
             _loadingError = action.error;
             TasksStore.emitChange();
             break;

@@ -5,14 +5,14 @@ const Schema = mongoose.Schema;
 const organizationSchema = new Schema({
     name: {
         type: String,
-        validate:{
-            validator: function(v){
+        validate: {
+            validator: function (v) {
                 return /^[А-ЯA-Zа-яa-z](.[а-яa-zА-ЯA-Z]*)$/.test(v);
             },
             message: props => `${props.value} не верное Имя`
         },
         maxlength: [30, 'Максимальная длинна имени 30 символов'],
-        minlength: [3, 'Минимальная длинна имени 3 символа'], 
+        minlength: [3, 'Минимальная длинна имени 3 символа'],
         required: true
     },
     description: {
@@ -22,12 +22,12 @@ const organizationSchema = new Schema({
     },
     groups: [
         {
-          type: Schema.Types.ObjectId,
-          ref: 'Group',
-          autopopulate: true
+            type: Schema.Types.ObjectId,
+            ref: 'Group',
+            autopopulate: true
         }
     ],
-    projects:[
+    projects: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Project',

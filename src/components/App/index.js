@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Redirect, Switch, Router } from "react-router-dom
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import MainPage from '../MainPage'
-import ConfigurationPage from '../ConfigurationPage'
+import AuthenticationPage from '../AuthenticationPage'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import './style.css'
@@ -36,11 +36,10 @@ library.add(faUser, faPowerOff,
 const history = createBrowserHistory();
 
 class App extends PureComponent {
-
     render() {
 
-        const ConfigurationFuncRender = function(props){
-            return <ConfigurationPage {...props} />
+        const AuthenticationFuncRender = function(props){
+            return <AuthenticationPage {...props} />
         }
 
         const MainFuncRender = function(props){
@@ -50,8 +49,8 @@ class App extends PureComponent {
         return (
             <Router history={history}>
                 <div>
-                    <Route path="/" exact render={() => <Redirect to="/configuration"/>}/>
-                    <Route path="/configuration" render={ConfigurationFuncRender}/>
+                    <Route path="/" exact render={() => <Redirect to="/authentication"/>}/>
+                    <Route path="/authentication" render={AuthenticationFuncRender}/>
                     <Route path="/main" render={MainFuncRender}/>
                 </div>
             </Router>  

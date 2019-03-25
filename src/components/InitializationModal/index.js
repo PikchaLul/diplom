@@ -1,34 +1,34 @@
 import React, { PureComponent } from 'react'
 import { Modal, Button } from 'react-bootstrap'
-import { BrowserRouter as Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 import './style.css'
 
 
-class AuthorizationModal extends PureComponent {
+class InitializationModal extends PureComponent {
 
     state = {
-        userName: '',
-        userPassword: ''
+        superUserName: '',
+        superUserPassword: ''
     }
 
-    handleUserAuthorization = () => {
-        const user = {
-            login: this.state.userName,
-            password: this.state.userPassword
+    handleSuperUserAdd = () => {
+        const superUser = {
+            login: this.state.superUserName,
+            password: this.state.superUserPassword
         }
 
-        this.props.onClose(user);
+        this.props.onClose(superUser);
     }
 
-    handleUserNameChange = (event) => {
-        this.setState({ userName: event.target.value });
-        console.log(this.state.userName);
+    handleSuperUserNameChange = (event) => {
+        this.setState({ superUserName: event.target.value });
+        console.log(this.state.superUserName);
     }
 
-    handleUserPasswordChange = (event) => {
-        this.setState({ userPassword: event.target.value });
-        console.log(this.state.userPassword);
+    handleSuperUserPasswordChange = (event) => {
+        this.setState({ superUserPassword: event.target.value });
+        console.log(this.state.superUserPassword);
     }
 
     render() {
@@ -39,7 +39,7 @@ class AuthorizationModal extends PureComponent {
             >
                 <Modal.Header>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Авторизация
+                        Конфигурационные данные
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -51,8 +51,8 @@ class AuthorizationModal extends PureComponent {
                                 </label>
                                 <div className="col-md-12">
                                     <input type="text"
-                                        onChange={this.handleUserNameChange}
-                                        defaultValue={this.state.userName}
+                                        onChange={this.handleSuperUserNameChange}
+                                        defaultValue={this.state.superUserName}
                                         className="at-input form-control"
                                         placeholder="Введите имя пользователя">
                                     </input>
@@ -64,8 +64,8 @@ class AuthorizationModal extends PureComponent {
                                 </label>
                                 <div className="col-md-12">
                                     <input type="text"
-                                        onChange={this.handleUserPasswordChange}
-                                        defaultValue={this.state.userPassword}
+                                        onChange={this.handleSuperUserPasswordChange}
+                                        defaultValue={this.state.superUserPassword}
                                         className="at-input form-control"
                                         placeholder="Введите пароль">
                                     </input>
@@ -75,11 +75,11 @@ class AuthorizationModal extends PureComponent {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={this.handleUserAuthorization}>Войти</Button>
+                    <Button onClick={this.handleSuperUserAdd}>Войти</Button>
                 </Modal.Footer>
             </Modal>
         )
     }
 }
 
-export default AuthorizationModal
+export default InitializationModal
