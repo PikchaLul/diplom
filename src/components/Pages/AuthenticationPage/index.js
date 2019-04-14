@@ -2,14 +2,14 @@ import React, { PureComponent } from 'react';
 import { BrowserRouter, Switch, Route, Redirect, Router } from "react-router-dom";
 import createBrowserHistory from 'history/createBrowserHistory';
 
-import AuthenticationStore from '../../stores/AuthenticationStore';
-import AuthenticationActions from '../../actions/AuthenticationActions';
+import AuthenticationStore from '../../../stores/AuthenticationStore';
+import AuthenticationActions from '../../../actions/AuthenticationActions';
 
-import AuthorizationStore from '../../stores/AuthorizationStore';
-import AuthorizationActions from '../../actions/AuthorizationActions';
+import AuthorizationStore from '../../../stores/AuthorizationStore';
+import AuthorizationActions from '../../../actions/AuthorizationActions';
 
-import InitializationModal from '../InitializationModal';
-import AuthorizationModal from '../AuthorizationModal';
+import InitializationModal from '../../Modals/InitializationModal';
+import AuthorizationModal from '../../Modals/AuthorizationModal';
 
 import './style.css';
 
@@ -53,8 +53,9 @@ class AuthenticationPage extends PureComponent {
 
     handleAuthorizationUser = (user) => {
         AuthorizationActions.authorizationUser(user);
+        console.log(AuthorizationStore.isAuthorization());
         if(AuthorizationStore.isAuthorization()){
-            this.setState({ showAuthorizationModal: !AuthorizationStore.isAuthorization() });
+            this.setState({ showAuthorizationModal: AuthorizationStore.isAuthorization() });
             this.props.history.push('/main');
         }
         

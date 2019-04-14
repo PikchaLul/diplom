@@ -23,12 +23,10 @@ class AuthorizationModal extends PureComponent {
 
     handleUserNameChange = (event) => {
         this.setState({ userName: event.target.value });
-        console.log(this.state.userName);
     }
 
     handleUserPasswordChange = (event) => {
         this.setState({ userPassword: event.target.value });
-        console.log(this.state.userPassword);
     }
 
     render() {

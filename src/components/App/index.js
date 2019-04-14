@@ -2,8 +2,8 @@ import React, {PureComponent} from 'react'
 import { BrowserRouter, Route, Redirect, Switch, Router } from "react-router-dom";
 import createBrowserHistory from 'history/createBrowserHistory'
 
-import MainPage from '../MainPage'
-import AuthenticationPage from '../AuthenticationPage'
+import MainPage from '../Pages/MainPage'
+import AuthenticationPage from '../Pages/AuthenticationPage'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import './style.css'

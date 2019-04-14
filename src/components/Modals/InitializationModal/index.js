@@ -23,12 +23,10 @@ class InitializationModal extends PureComponent {
 
     handleSuperUserNameChange = (event) => {
         this.setState({ superUserName: event.target.value });
-        console.log(this.state.superUserName);
     }
 
     handleSuperUserPasswordChange = (event) => {
         this.setState({ superUserPassword: event.target.value });
-        console.log(this.state.superUserPassword);
     }
 
     render() {

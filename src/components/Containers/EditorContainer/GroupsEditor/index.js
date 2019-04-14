@@ -1,13 +1,15 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import SelectModal from '../../SelectModal'
+import SelectModal from '../../../Modals/SelectModal'
 
-import SelectModalsData from '../../SelectModalsData'
+import GroupsActions from '../../../../actions/GroupsActions';
+
+import SelectModalsData from '../../../SelectModalsData'
 
 import './style.css'
 
-class InputViewer extends PureComponent {
+class GroupsEditor extends PureComponent {
 
     state = {
         name: '',
@@ -36,7 +38,7 @@ class InputViewer extends PureComponent {
             accessRights: this.state.accessRights
         };
 
-        this.props.onGroupAdd(newGroup);
+        GroupsActions.createGroup(newGroup);
         this.setState({ name: '', description: '', accessRights: '' });
     }
 
@@ -111,4 +113,4 @@ class InputViewer extends PureComponent {
     }
 }
 
-export default InputViewer
+export default GroupsEditor

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt-nodejs');
+const util = require('util');
 
 const User = require('../../models/User');
 
@@ -32,7 +33,7 @@ router.post('/initialization', (req, res) => {
 })
 
 router.get('/authorization', (req, res) => {
-  console.log('sfsdfsdfsdf');
+  console.log(req.session, 'fdgdfgfd');
   if(req.session.user)
     res.status(200).json({isAuthorization: true});
   else
@@ -40,10 +41,10 @@ router.get('/authorization', (req, res) => {
 })
 
 router.post('/authorization', (req, res, next) => {
-  const login = req.body.login;
-  const password = req.body.password;
+  const { session } = req;
+  const { login, password } = req.body;
 
-  console.log(req.session.user);
+  const comparerPassword = util.promisify(bcrypt.compare);
 
   User.findOne({
     login: login
@@ -53,16 +54,22 @@ router.post('/authorization', (req, res, next) => {
         console.log('1dsfdsfds');
         res.status(304);
       } else {
-        bcrypt.compare(password, user.password, function (err, result) {
+        comparerPassword(password, user.password)
+        .then(result => {
           if (!result) {
             console.log('2dsfdsfds');
             res.status(305);
           } else {
-            req.session.user = {id: user._id, name: user.login}
-            console.log(req.session.user);
+            session.user = { id: user._id, name: user.login };
+            console.log(session);
             res.status(200).end();
           }
-        });
+        })
+        .catch(err => {
+          console.log('5dsfdsfds');
+          console.log(err);
+          res.status(404).end();
+        })
       }
     })
     .catch(err => {

@@ -1,22 +1,31 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import EditorContainer from '../EditorContainer'
+import EditorContainer from '../Containers/EditorContainer'
 
 import './style.css'
 
 class MainContent extends PureComponent {
+
+    state = {
+        isOpenEditor: false
+    }
+
+    onButtonAddRecordClick = () => {
+        this.setState({isOpenEditor: true})
+    }
+
+    onButtonCancelRecordClick = () => {
+        this.setState({isOpenEditor: false})
+    }
+
     render() {
         const {ComponentName} = this.props;
-        console.log('sdfsdfdfsdfsd');
 
         return (
             <div className="main-content-layout">
                 <div className="content-layout">
                     <div className="container-fluid">
-                        {this.props.isOpenEditor ? <EditorContainer onButtonCancelClick = {this.props.onButtonCancelRecordClick}
-                                                                    currentModalPage = {this.props.currentModalPage}
-                                                                    onGroupAdd = {this.props.onGroupAdd}
-
+                        {this.state.isOpenEditor ? <EditorContainer onButtonCancelClick = {this.onButtonCancelRecordClick}
                         /> : null}
                         <div className="row">
                             <div className="col-lg-12">
@@ -26,9 +35,6 @@ class MainContent extends PureComponent {
                                             <div className="content-header-text">
                                                 {this.props.title}
                                             </div>
-                                            <span className="badge title-badge">
-                                                {this.props.groups.length}
-                                            </span>
                                         </div>
                                         <div className="content-view">
                                             <div className="smart-search row">
@@ -44,12 +50,12 @@ class MainContent extends PureComponent {
                                                     </div>
                                                 </div>
                                                 <div className="action-list">
-                                                    <button className="action-button-add"  onClick = {this.props.onButtonAddRecordClick}>
+                                                    <button className="action-button-add"  onClick = {this.onButtonAddRecordClick}>
                                                             <FontAwesomeIcon icon="plus" className="button-icon lg" />
                                                     </button>
                                                 </div>
                                             </div>
-                                            <ComponentName Data = {this.props.groups}/>
+                                            <ComponentName/>
                                         </div>
                                     </div>
                                 </div>

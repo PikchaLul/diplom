@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 const MongoStore = require('connect-mongo')(session);
 
@@ -11,6 +12,7 @@ const routes = require('./routes');
 
 const app = express();
 
+mongoose.Promise = global.Promise;
 mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {
     useNewUrlParser: true,
     reconnectTries: 10,
@@ -29,18 +31,18 @@ dbConnection.once('open', () => {
     console.log('Connected to MongoDB');
 });
 
+app.use(cookieParser('sdfsdfdsfcsf'));
 app.use(
     session({
         secret: "sdfsdfdsfcsf",
-        resave: true,
+        resave: false,
+        cookie: { secure: false },
         saveUninitialized: false,
         store: new MongoStore({
             mongooseConnection: mongoose.connection
         })
     })
 );
-
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

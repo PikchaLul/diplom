@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import TableContainer from '../TableContainer';
+import TableContainer from '../../Containers/TableContainer';
 
 import './style.css'
 import { Table } from 'react-bootstrap';

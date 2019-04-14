@@ -47,7 +47,6 @@ const AuthorizationActions = {
 
         AuthorizationApi.isAuthorization()
             .then(({ data }) => {
-                console.log(data);
                 AppDispatcher.dispatch({
                     type: Constants.AUTHENTICATION_AUTHORIZATION_SUCCESS,
                     isAuthorization: data.isAuthorization

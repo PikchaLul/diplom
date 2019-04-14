@@ -1,9 +1,9 @@
-import Organizations from './Organizations'
-import Projects from './Projects'
-import OpenVPN from './OpenVPN'
-import Credentials from './Credentials'
-import Users from './Users'
-import Groups from './Groups'
+import Organizations from './BasicComponents/Organizations'
+import Projects from './BasicComponents/Projects'
+import OpenVPN from './BasicComponents/OpenVPN'
+import Credentials from './BasicComponents/Credentials'
+import Users from './BasicComponents/Users'
+import Groups from './BasicComponents/Groups'
 
 
 export default {
@@ -173,32 +173,8 @@ export default {
     },
     "Пользователи":{
         subsectionComponent: Users,
-        subsectionProps: {        
+        subsectionProps: {          
             sectionName: "Пользователи",
-            sectionNameCount: "6",
-            subsectionData:{
-                header:[ 
-                    {
-                        columnName:"Имя пользователя",
-                        position: ""
-                    },
-                    {
-                        columnName:"Статус",
-                        position: "center"
-                    },
-                    {
-                        columnName:"Действия",
-                        position: "center"
-                    }
-                ],
-                body:[
-                    [
-                        {type:"userName", data: "Саша"},
-                        {type:"status", data: "online"},
-                        {type:"icons", data: ["pencil-alt", "trash", ]} 
-                    ]
-                ]
-            }
         } 
     },
     "Группы":{

@@ -1,39 +1,30 @@
 import React, { PureComponent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import TableContainer from '../TableContainer'
+import TableContainer from '../../Containers/TableContainer'
 
 import './style.css'
 
 const header = [
     {
-        id: "1",
-        columnName: "Имя группы",
+        columnName: "Имя пользователя",
         position: ""
     },
     {
-        id: "2",
-        columnName: "Кол-во пользователей",
-        position: "center"
-    },
-    {
-        id: "3",
         columnName: "Статус",
         position: "center"
     },
     {
-        id: "4",
         columnName: "Действия",
         position: "center"
     }
 ];
 
-class Groups extends PureComponent {
+class Users extends PureComponent {
     render() {
         const { Data } = this.props;
 
         const headerRow = header.map((element) =>
-            <div key={element.id} className="table-header table-cell col-md-3">
+            <div key={element.id} className="table-header table-cell col-md-4">
                 <span className={element.position}>{element.columnName}</span>
             </div>
         )
@@ -42,28 +33,15 @@ class Groups extends PureComponent {
             <div key={record.id} className="list-default-table-row list-table-row">
                 <div></div>
                 <div className="d-flex h-100">
-                    <div className="table-cell col-md-3">
+                    <div className="table-cell col-md-4">
                         <span className="">{record.name}</span>
                     </div>
-                    <div className="table-cell col-md-3">
-                        <span className="badge title-badge total center">{record.userCount}</span>
+                    <div className="table-cell col-md-4">
+                        <span className="status-on center">{record.status}</span>
                     </div>
-                    <div className="table-cell col-md-3">
-                        <div className="center">
-                            <span className="badge title-badge online">{record.userCount}</span>
-                            <span>/</span>
-                            <span className="badge title-badge offline">{record.userCount}</span>
-                        </div>
-                    </div>
-                    <div className="list-action-button-container col-md-3">
+                    <div className="list-action-button-container col-md-4">
                         <div className="table-cell list-action-button-cell">
                             <div className="center">
-                                <button className="action-button">
-                                    <FontAwesomeIcon icon="plus" className="button-icon" />
-                                </button>
-                                <button className="action-button">
-                                    <FontAwesomeIcon icon="minus" className="button-icon" />
-                                </button>
                                 <button className="action-button">
                                     <FontAwesomeIcon icon="pencil-alt" className="button-icon" />
                                 </button>
@@ -76,11 +54,13 @@ class Groups extends PureComponent {
                 </div>
             </div>
         )
+
         return (
             <TableContainer header={headerRow}
-                body={bodyRow} />
+                body={bodyRow}
+            />
         )
     }
 }
 
-export default Groups
+export default Users
